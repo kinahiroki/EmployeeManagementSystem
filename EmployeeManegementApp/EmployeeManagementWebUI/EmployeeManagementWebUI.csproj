@@ -7,10 +7,8 @@
   <ItemGroup>
     <Folder Include="BusinessLogicDto\" />
     <Folder Include="BusinessLogic\Interface\" />
-    <Folder Include="Common\" />
     <Folder Include="DataAccessDto\" />
     <Folder Include="DataAccess\Interface\" />
-    <Folder Include="Helper\Interface\" />
   </ItemGroup>
 
 </Project>

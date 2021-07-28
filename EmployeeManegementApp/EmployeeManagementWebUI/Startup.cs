@@ -1,3 +1,4 @@
+using EmployeeManagementWebUI.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,12 +24,15 @@ namespace EmployeeManagementWebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            // DIで使うクラスの追加
+            // Helper
+            services.AddTransient<IEV0002Helper, EV0002Helper>();
 
-            // TODO DIで使うクラスの追加
             // Logic
 
             // DataAccess
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
