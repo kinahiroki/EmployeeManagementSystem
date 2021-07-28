@@ -28,6 +28,12 @@ namespace EmployeeManagementWebUI.Helper
         public SCRN0002ViewModelDTO Init()
         {
             var viewModelDto = new SCRN0002ViewModelDTO();
+            
+            // TODO 所属部署プルダウンリスト作成
+
+            // TODO 役職プルダウンリスト作成
+
+            // TODO 性別ラジオボタン作成
 
             return viewModelDto;
         }
