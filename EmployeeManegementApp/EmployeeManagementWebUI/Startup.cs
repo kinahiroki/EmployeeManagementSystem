@@ -56,7 +56,7 @@ namespace EmployeeManagementWebUI
                 // ƒƒjƒ…[‰æ–Ê‚ÌURL‚É•ÏX
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=SCRN0001}/{action=Index}/{id?}");
+                    pattern: "{controller=SCRN0000}/{action=Index}/{id?}");
             });
         }
     }
