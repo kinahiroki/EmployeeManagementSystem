@@ -5,10 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="BusinessLogic\Interface\" />
-    <Folder Include="DataAccess\Interface\" />
     <Folder Include="BusinessLogicDto\" />
+    <Folder Include="BusinessLogic\Interface\" />
     <Folder Include="DataAccessDto\" />
+    <Folder Include="DataAccess\Interface\" />
     <Folder Include="Helper\Interface\" />
   </ItemGroup>
 
