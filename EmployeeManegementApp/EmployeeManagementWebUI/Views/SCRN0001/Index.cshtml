@@ -1,5 +1,11 @@
 ﻿@*
     社員管理システム　メニュー画面
 *@
-@{
+
+@* Razorを使用した書き方 *@
+@using (Html.BeginForm("Index", "SCRN0002", FormMethod.Post))
+{
+    @Html.TextBox("employeeID", "", new { size=15, maxlength=18 });
+
+    <button>社員登録</button>
 }
