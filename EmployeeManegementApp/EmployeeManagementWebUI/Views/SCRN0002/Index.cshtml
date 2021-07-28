@@ -2,6 +2,21 @@
     社員登録画面
 *@
 @{
+    ViewData["Title"] = "社員登録";
 }
 
-社員登録画面
+<h2>@ViewData["Title"]</h2>
+
+<div class="input-group">
+
+    @using (Html.BeginForm("Execute", "SCRN0002", FormMethod.Post))
+    {
+        <input type="submit" class="btn" value="新規登録" />
+    }
+
+    @using (Html.BeginForm("Back", "SCRN0002", FormMethod.Get))
+    {
+        <input type="submit" class="btn" value="戻る" />
+    }
+
+</div>
