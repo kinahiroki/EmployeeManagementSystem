@@ -9,6 +9,7 @@
     <Folder Include="DataAccess\Interface\" />
     <Folder Include="BusinessLogicDto\" />
     <Folder Include="DataAccessDto\" />
+    <Folder Include="Helper\Interface\" />
   </ItemGroup>
 
 </Project>
