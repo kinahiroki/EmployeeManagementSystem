@@ -24,6 +24,11 @@ namespace EmployeeManagementWebUI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            // TODO DIで使うクラスの追加
+            // Logic
+
+            // DataAccess
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,9 +53,10 @@ namespace EmployeeManagementWebUI
 
             app.UseEndpoints(endpoints =>
             {
+                // メニュー画面のURLに変更
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=SCRN0001}/{action=Index}/{id?}");
             });
         }
     }
