@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmployeeManagementWebUI.Helper;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementWebUI.Controllers.SCRN0001
 {
@@ -10,6 +11,13 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0001
     /// </remarks>
     public class SCRN0001Controller : Controller
     {
+        private readonly IEV0001Helper _ev0001Helper = null;
+
+        public SCRN0001Controller(IEV0001Helper ev0001Helper)
+        {
+            _ev0001Helper = ev0001Helper;
+        }
+
         /// <summary>
         /// 初期表示
         /// </summary>
@@ -21,7 +29,9 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0001
         [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            // 初期化
+            var viewModelDto = _ev0001Helper.Init();
+            return View(viewModelDto);
         }
     }
 }

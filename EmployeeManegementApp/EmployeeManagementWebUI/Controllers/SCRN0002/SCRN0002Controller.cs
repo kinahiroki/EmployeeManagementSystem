@@ -37,7 +37,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         [Route("/entry")]
         [HttpGet]
         [HttpPost]
-        public IActionResult Index()
+        public IActionResult Index(string employeeID)
         {
             var viewModelDto = _ev0002Helper.Init();
             return View(viewModelDto);

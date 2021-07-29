@@ -26,6 +26,7 @@ namespace EmployeeManagementWebUI
         {
             // DI‚ÅŽg‚¤ƒNƒ‰ƒX‚Ì’Ç‰Á
             // Helper
+            services.AddTransient<IEV0001Helper, EV0001Helper>();
             services.AddTransient<IEV0002Helper, EV0002Helper>();
 
             // Logic

@@ -6,11 +6,13 @@
     ViewData["Title"] = "社員管理システム メニュー";
 }
 
+@model EmployeeManagementWebUI.ViewModel.SCRN0001.SCRN0001ViewModelDTO;
+
 <h2>@ViewData["Title"]</h2>
 
 @using (Html.BeginForm("Index", "SCRN0002", FormMethod.Post))
 {
-    @Html.TextBox("employeeID", "", new { size=15, maxlength=18 });
+    @Html.TextBoxFor(model => model.EmployeeID);
 
     <button>社員登録</button>
 }
