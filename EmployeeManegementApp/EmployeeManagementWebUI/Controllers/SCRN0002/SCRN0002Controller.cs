@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmployeeManagementWebUI.Helper;
+using EmployeeManagementWebUI.ViewModel.SCRN0002;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagementWebUI.Controllers.SCRN0002
 {
@@ -18,6 +20,13 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// <remarks>アクション名：社員管理システムメニュー_初期表示</remarks>
         private const string ACTION_NAME_INDEX = "Index";
 
+        private readonly IEV0002Helper _ev0002Helper = null;
+
+        public SCRN0002Controller(IEV0002Helper ev0002Helper)
+        {
+            _ev0002Helper = ev0002Helper;
+        }
+
         /// <summary>
         /// 初期表示
         /// </summary>
@@ -30,7 +39,8 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         [HttpPost]
         public IActionResult Index()
         {
-            return View();
+            var viewModelDto = _ev0002Helper.Init();
+            return View(viewModelDto);
         }
 
         /// <summary>
@@ -42,7 +52,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// <returns>ActionResult</returns>
         [Route("/entry/execute")]
         [HttpPost]
-        public IActionResult Execute()
+        public IActionResult Execute(SCRN0002Request request)
         {
             return View();
         }
