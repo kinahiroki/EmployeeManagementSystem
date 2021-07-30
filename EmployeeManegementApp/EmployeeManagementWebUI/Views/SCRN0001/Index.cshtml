@@ -10,6 +10,15 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<div>
+    <fieldset>
+        @foreach (var displayItem in Model.ErrorMessageList)
+        {
+            @Html.Label(displayItem.DisplayForMessage) ; <br/>
+        }
+    </fieldset>
+</div>
+
 @using (Html.BeginForm("Index", "SCRN0002", FormMethod.Post))
 {
     @Html.TextBoxFor(model => model.EmployeeID);

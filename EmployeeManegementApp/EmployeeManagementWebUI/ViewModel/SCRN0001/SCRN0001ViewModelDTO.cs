@@ -1,8 +1,6 @@
 ﻿using EmployeeManagementWebUI.Common.Dto;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementWebUI.ViewModel.SCRN0001
 {
@@ -14,13 +12,25 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0001
     /// </remarks>
     public class SCRN0001ViewModelDTO
     {
-        /// <summary>エラーメッセージリスト</summary>
-        /// <remarks>エラーメッセージリスト</remarks>
-        /// <value>エラーメッセージリスト</value>
-        public IList<DisplayMessage> ErrorMessageList { get; set; }
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <remarks>
+        /// 各プロパティの初期値を設定する。
+        /// </remarks>
+        public SCRN0001ViewModelDTO()
+        {
+            ErrorMessageList = new List<DisplayMessageDTO>();
+            EmployeeID = string.Empty;
+        }
 
-        /// <summary>社員ID</summary>
-        /// <remarks>社員ID</remarks>
+        /// <summary>エラーメッセージリストの取得と設定</summary>
+        /// <remarks>エラーメッセージリストの取得と設定</remarks>
+        /// <value>エラーメッセージリスト</value>
+        public IList<DisplayMessageDTO> ErrorMessageList { get; set; }
+
+        /// <summary>社員IDの取得と設定</summary>
+        /// <remarks>社員IDの取得と設定</remarks>
         /// <value>社員ID</value>
         public string EmployeeID { get; set; }
     }

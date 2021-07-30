@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EmployeeManagementWebUI.Common.Dto
 {
-    public class DisplayMessage
+    public class DisplayMessageDTO
     {
         public string MessageID { get; set; }
 
