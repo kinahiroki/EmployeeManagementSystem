@@ -1,6 +1,6 @@
 using System;
 
-namespace EmployeeManagementWebUI.Models
+namespace EmployeeManagementWebUI.ViewModel
 {
     public class ErrorViewModel
     {

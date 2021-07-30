@@ -1,3 +1,4 @@
+using EmployeeManagementWebUI.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -23,12 +24,16 @@ namespace EmployeeManagementWebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            // DIで使うクラスの追加
+            // Helper
+            services.AddTransient<IEV0001Helper, EV0001Helper>();
+            services.AddTransient<IEV0002Helper, EV0002Helper>();
 
-            // TODO DIで使うクラスの追加
             // Logic
 
             // DataAccess
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,7 +45,7 @@ namespace EmployeeManagementWebUI
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/SCRN9999/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -56,7 +61,7 @@ namespace EmployeeManagementWebUI
                 // メニュー画面のURLに変更
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=SCRN0001}/{action=Index}/{id?}");
+                    pattern: "{controller=SCRN0000}/{action=Index}/{id?}");
             });
         }
     }

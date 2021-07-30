@@ -1,7 +1,27 @@
 ﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+    社員管理システム　メニュー画面
 *@
+
 @{
+    ViewData["Title"] = "社員管理システム メニュー";
 }
 
-社員管理システム　メニュー
+@model EmployeeManagementWebUI.ViewModel.SCRN0001.SCRN0001ViewModelDTO;
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <fieldset>
+        @foreach (var displayItem in Model.ErrorMessageList)
+        {
+            @Html.Label(displayItem.DisplayForMessage) ; <br/>
+        }
+    </fieldset>
+</div>
+
+@using (Html.BeginForm("Index", "SCRN0002", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.EmployeeID);
+
+    <button>社員登録</button>
+}
