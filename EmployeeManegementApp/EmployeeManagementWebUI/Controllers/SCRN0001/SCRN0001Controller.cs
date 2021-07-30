@@ -11,8 +11,16 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0001
     /// </remarks>
     public class SCRN0001Controller : Controller
     {
+        /// <summary></summary>
+        /// <remarks></remarks>
         private readonly IEV0001Helper _ev0001Helper = null;
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <remarks>
+        /// DIの実施
+        /// </remarks>
         public SCRN0001Controller(IEV0001Helper ev0001Helper)
         {
             _ev0001Helper = ev0001Helper;
