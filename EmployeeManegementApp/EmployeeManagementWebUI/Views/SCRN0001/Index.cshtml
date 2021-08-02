@@ -3,7 +3,7 @@
 *@
 
 @{
-    ViewData["Title"] = "社員管理システム メニュー";
+    ViewData["Title"] = "メニュー";
 }
 
 @model EmployeeManagementWebUI.ViewModel.SCRN0001.SCRN0001ViewModelDTO;
@@ -14,14 +14,25 @@
     <fieldset>
         @foreach (var displayItem in Model.ErrorMessageList)
         {
-            @Html.Label(displayItem.DisplayForMessage) ; <br/>
+            @Html.Label(displayItem.DisplayForMessage) ; <br />
         }
     </fieldset>
 </div>
 
 @using (Html.BeginForm("Index", "SCRN0002", FormMethod.Post))
 {
-    @Html.TextBoxFor(model => model.EmployeeID);
-
     <button>社員登録</button>
+}
+
+<br/>
+
+@using (Html.BeginForm("Index", "SCRN0003", FormMethod.Post))
+{
+    <label>社員ID</label>
+    <br/>
+    
+    @Html.TextBoxFor(model => model.EmployeeID);
+    <br/>
+
+    <button>社員照会・更新</button>
 }
