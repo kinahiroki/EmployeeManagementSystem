@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">C:\DCOM社内用\999_その他\NUnit研修用\EmployeeManagementSystem\EmployeeManegementApp\tools\.store\.stage\fpzafnrr.tov</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\DCOM社内用\999_その他\NUnit研修用\EmployeeManagementSystem\EmployeeManegementApp\tools\.store\.stage\fpzafnrr.tov</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">DotnetToolReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.10.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\DCOM社内用\999_その他\NUnit研修用\EmployeeManagementSystem\EmployeeManegementApp\tools\.store\.stage\fpzafnrr.tov\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Pkgdotnet-reportgenerator-globaltool Condition=" '$(Pkgdotnet-reportgenerator-globaltool)' == '' ">C:\DCOM社内用\999_その他\NUnit研修用\EmployeeManagementSystem\EmployeeManegementApp\tools\.store\.stage\fpzafnrr.tov\dotnet-reportgenerator-globaltool\4.8.12</Pkgdotnet-reportgenerator-globaltool>
+  </PropertyGroup>
+</Project>
