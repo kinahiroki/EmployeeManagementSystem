@@ -10,12 +10,84 @@
 
 <h2>@ViewData["Title"]</h2>
 
+<div>
+    <fieldset>
+        @foreach (var displayItem in Model.ErrorMessageList)
+        {
+            @Html.Label(displayItem.DisplayForMessage) ; <br />
+        }
+    </fieldset>
+</div>
+
 <div class="input-group">
 
     @using (Html.BeginForm("Execute", "SCRN0002", FormMethod.Post))
     {
+        <table>
+            <tr>
+                <td>社員ID</td>
+                <td colspan="2">
+                    @Html.TextBoxFor(model => model.EmployeeID)
+                </td>
+            </tr>
+            <tr>
+                <td>所属部署</td>
+                <td colspan="2">
+                    @Html.DropDownListFor(
+                         model => model.SelectedDepartmentCD,
+                         new SelectList(Model.DepartmentPullDownList, "ItemValue", "ItemNameForDisplay"))
+                </td>
+            </tr>
+            <tr>
+                <td>役職</td>
+                <td colspan="2">
+                    @Html.DropDownListFor(
+                         model => model.SelectedPositionCD,
+                         new SelectList(Model.PositionPullDownList, "ItemValue", "ItemNameForDisplay"))
+                </td>
+            </tr>
+            <tr>
+                <td>氏名</td>
+                <td colspan="2">
+                    @Html.TextBoxFor(model => model.EmployeeName)
+                </td>
+            </tr>
+            <tr>
+                <td>性別</td>
+                <td>
+                    @Html.RadioButtonFor(
+                        model => model.SelectedGenderCD, "01")
+                </td>
+                <td>
+                    外国籍
+                    @Html.CheckBoxFor(model => model.IsForeignNationality)
+                </td>
+            </tr>
+            <tr>
+                <td>生年月日</td>
+                <td colspan="2">
+                    @Html.TextBoxFor(model => model.Birthday)
+                </td>
+            </tr>
+            <tr>
+                <td>基本給料</td>
+                <td colspan="2">
+                    @Html.TextBoxFor(model => model.BaseSalary)
+                    <label style="font-size:10px">(千円)</label>
+                </td>
+            </tr>
+            <tr>
+                <td>メモ</td>
+                <td>
+                    @Html.TextAreaFor(model => model.Memo)
+                </td>
+            </tr>
+        </table>
+
         <input type="submit" class="btn" value="新規登録" />
     }
+
+    <br>
 
     @using (Html.BeginForm("Back", "SCRN0002", FormMethod.Get))
     {

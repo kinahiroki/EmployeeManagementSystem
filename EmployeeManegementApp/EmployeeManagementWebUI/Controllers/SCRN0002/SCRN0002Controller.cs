@@ -1,6 +1,7 @@
 ﻿using EmployeeManagementWebUI.Helper;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace EmployeeManagementWebUI.Controllers.SCRN0002
 {
@@ -37,7 +38,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         [Route("/entry")]
         [HttpGet]
         [HttpPost]
-        public IActionResult Index(string employeeID)
+        public IActionResult Index()
         {
             var viewModelDto = _ev0002Helper.Init();
             return View(viewModelDto);
@@ -49,11 +50,18 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// <remarks>
         /// イベント名：新規登録ボタン押下
         /// </remarks>
+        /// <param name="request">request</param>
         /// <returns>ActionResult</returns>
         [Route("/entry/execute")]
         [HttpPost]
         public IActionResult Execute(SCRN0002Request request)
         {
+            var viewModelDto = _ev0002Helper.Entry(request);
+            if (viewModelDto.ErrorMessageList.Any())
+            {
+                return View("Index", viewModelDto);
+            }
+
             return View();
         }
 

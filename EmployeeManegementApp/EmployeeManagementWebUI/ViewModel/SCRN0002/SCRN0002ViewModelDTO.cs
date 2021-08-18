@@ -19,6 +19,7 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
         /// </remarks>
         public SCRN0002ViewModelDTO()
         {
+            ErrorMessageList = new List<DisplayMessageDTO>();
             EmployeeID = string.Empty;
             DepartmentPullDownList = new List<PulldownListForItemDTO>();
             SelectedDepartmentCD = string.Empty;
@@ -32,6 +33,11 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
             BaseSalary = string.Empty;
             Memo = string.Empty;
         }
+
+        /// <summary>エラーメッセージリストの取得と設定</summary>
+        /// <remarks>エラーメッセージリストの取得と設定</remarks>
+        /// <value>エラーメッセージリスト</value>
+        public IList<DisplayMessageDTO> ErrorMessageList { get; set; }
 
         public string EmployeeID { get; set; }
 
