@@ -32,6 +32,11 @@ namespace EmployeeManagementWebUI.Helper
             var viewModelDto = new SCRN0002ViewModelDTO();
 
             // TODO 所属部署プルダウンリスト作成
+            viewModelDto.DepartmentPullDownList = new List<PulldownListForItemDTO>()
+            {
+                new PulldownListForItemDTO(){ ItemNameForDisplay = "総務", ItemValue = "01" },
+                new PulldownListForItemDTO(){ ItemNameForDisplay = "人事", ItemValue = "02" },
+            };
 
             // TODO 役職プルダウンリスト作成
 
