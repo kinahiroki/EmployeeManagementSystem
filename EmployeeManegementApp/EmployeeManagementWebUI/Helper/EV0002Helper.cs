@@ -1,5 +1,6 @@
 ﻿using EmployeeManagementWebUI.Common.Dto;
 using EmployeeManagementWebUI.Common.Validate;
+using EmployeeManagementWebUI.DataAccess;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,9 @@ namespace EmployeeManagementWebUI.Helper
         public SCRN0002ViewModelDTO Init()
         {
             var viewModelDto = new SCRN0002ViewModelDTO();
+
+            var dataAccess = new SampleDataAccess();
+            dataAccess.SampleSelect();
 
             // TODO 所属部署プルダウンリスト作成
             viewModelDto.DepartmentPullDownList = new List<PulldownListForItemDTO>()

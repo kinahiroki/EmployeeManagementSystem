@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EmployeeManagementWebUI.Common.Dto;
+using Microsoft.Extensions.Options;
+using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -31,7 +33,7 @@ namespace EmployeeManagementWebUI.DataAccess
         /// </remarks>
         public EmployeeSystemRepository()
         {
-            var connectionStrings = ConfigurationManager.ConnectionStrings["EmployeeSystemDBContext"].ToString();
+            var connectionStrings = "Persist Security Info=False;Trusted_Connection=True;Initial Catalog=EMP_MNG_SYS;Server=(local);";
             _connection = new SqlConnection(connectionStrings);
         }
 
