@@ -1,3 +1,4 @@
+using EmployeeManagementWebUI.Common.Dto;
 using EmployeeManagementWebUI.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
