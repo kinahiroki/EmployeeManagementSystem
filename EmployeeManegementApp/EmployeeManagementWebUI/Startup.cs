@@ -1,3 +1,4 @@
+using EmployeeManagementWebUI.BusinessLogic;
 using EmployeeManagementWebUI.Common.Dto;
 using EmployeeManagementWebUI.Helper;
 using Microsoft.AspNetCore.Builder;
@@ -31,6 +32,7 @@ namespace EmployeeManagementWebUI
             services.AddTransient<IEV0002Helper, EV0002Helper>();
 
             // Logic
+            services.AddTransient<IEV8002Logic, EV8002Logic>();
 
             // DataAccess
 

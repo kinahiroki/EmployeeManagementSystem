@@ -1,4 +1,5 @@
-﻿using EmployeeManagementWebUI.Common.Dto;
+﻿using EmployeeManagementWebUI.BusinessLogic;
+using EmployeeManagementWebUI.Common.Dto;
 using EmployeeManagementWebUI.Common.Validate;
 using EmployeeManagementWebUI.DataAccess;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
@@ -17,8 +18,17 @@ namespace EmployeeManagementWebUI.Helper
     /// </remarks>
     public class EV0002Helper : IEV0002Helper
     {
-        public EV0002Helper()
+        #region === フィールド ===
+
+        /// <summary>所属管理Logic</summary>
+        /// <remarks>所属管理Logic</remarks>
+        private readonly IEV8002Logic _affiliationLogic = null;
+
+        #endregion
+
+        public EV0002Helper(IEV8002Logic affiliationLogic)
         {
+            _affiliationLogic = affiliationLogic;
         }
 
         /// <summary>
@@ -32,15 +42,17 @@ namespace EmployeeManagementWebUI.Helper
         {
             var viewModelDto = new SCRN0002ViewModelDTO();
 
-            var dataAccess = new SampleDataAccess();
-            dataAccess.SampleSelect();
+            // 所属管理データの取得
+            var affiliationList = _affiliationLogic.FindAllForAffiliation();
 
-            // TODO 所属部署プルダウンリスト作成
-            viewModelDto.DepartmentPullDownList = new List<PulldownListForItemDTO>()
-            {
-                new PulldownListForItemDTO(){ ItemNameForDisplay = "総務", ItemValue = "01" },
-                new PulldownListForItemDTO(){ ItemNameForDisplay = "人事", ItemValue = "02" },
-            };
+            // 所属部署プルダウンリスト作成
+            viewModelDto.DepartmentPullDownList = affiliationList.Select(x =>
+                new PulldownListForItemDTO()
+                {
+                    ItemNameForDisplay = x.AffiliationNm,
+                    ItemValue = x.AffiliationCD,
+                })
+                .ToList();
 
             // TODO 役職プルダウンリスト作成
 

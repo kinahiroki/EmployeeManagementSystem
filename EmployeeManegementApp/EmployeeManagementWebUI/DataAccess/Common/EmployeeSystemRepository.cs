@@ -56,7 +56,7 @@ namespace EmployeeManagementWebUI.DataAccess
         /// <remarks>
         /// DBの接続を閉じる
         /// </remarks>
-        public void Clone()
+        public void Close()
         {
             _connection.Close();
         }
@@ -114,8 +114,8 @@ namespace EmployeeManagementWebUI.DataAccess
         /// <remarks>
         /// SQL実行後に実行結果を返却なし
         /// </remarks>
-        /// <param name="query"></param>
-        /// <param name="parametarKeyAndValue"></param>
+        /// <param name="query">Query</param>
+        /// <param name="parametarKeyAndValue">SQLのパラメータ名と値</param>
         public void ExcuteNonQuery(string query, Dictionary<string, object> parametarKeyAndValue = null)
         {
             SqlCommand selectCommand = new SqlCommand(query, _connection);
