@@ -7,6 +7,8 @@
   <ItemGroup>
     <Folder Include="DataAccessDto\" />
     <Folder Include="DataAccess\Interface\" />
+    <Folder Include="Views\contents\js\" />
+    <Folder Include="Views\contents\css\" />
   </ItemGroup>
 
   <ItemGroup>
