@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -32,6 +33,7 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
             Memo = string.Empty;
         }
 
+        [Required]
         public string EmployeeID { get; set; }
 
         public string SelectedDepartmentCD { get; set; }
