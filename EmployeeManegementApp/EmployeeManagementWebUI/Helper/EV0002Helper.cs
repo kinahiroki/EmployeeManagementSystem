@@ -1,8 +1,10 @@
 ﻿using EmployeeManagementWebUI.BusinessLogic;
 using EmployeeManagementWebUI.Common.Dto;
+using EmployeeManagementWebUI.Common.Session;
 using EmployeeManagementWebUI.Common.Validate;
 using EmployeeManagementWebUI.DataAccess;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,13 @@ namespace EmployeeManagementWebUI.Helper
 
         #endregion
 
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <remarks>
+        /// コンストラクタ
+        /// </remarks>
+        /// <param name="affiliationLogic"></param>
         public EV0002Helper(IEV8002Logic affiliationLogic)
         {
             _affiliationLogic = affiliationLogic;

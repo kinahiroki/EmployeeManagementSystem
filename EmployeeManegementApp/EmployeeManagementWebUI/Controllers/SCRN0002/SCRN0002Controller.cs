@@ -62,7 +62,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
                 return View("Index", viewModelDto);
             }
 
-            return View();
+            return View("Index", "SCRN0004");
         }
 
         /// <summary>
