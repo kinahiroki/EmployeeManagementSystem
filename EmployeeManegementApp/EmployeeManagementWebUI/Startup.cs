@@ -26,6 +26,15 @@ namespace EmployeeManagementWebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Sessionの構成
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             // DIで使うクラスの追加
             // Helper
             services.AddSingleton<IEV0001Helper, EV0001Helper>();
@@ -33,8 +42,6 @@ namespace EmployeeManagementWebUI
 
             // Logic
             services.AddTransient<IEV8002Logic, EV8002Logic>();
-
-            // DataAccess
 
             services.AddControllersWithViews();
         }
@@ -58,6 +65,8 @@ namespace EmployeeManagementWebUI
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
