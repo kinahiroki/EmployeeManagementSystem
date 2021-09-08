@@ -21,7 +21,7 @@
 
 <div class="input-group">
 
-    @using (Html.BeginForm("Execute", "SCRN0002", FormMethod.Post))
+    @using (Html.BeginForm("Execute", "SCRN0002", FormMethod.Post, new { id = "form_employee_insert_info" }))
     {
         <table>
             <tr>
@@ -83,15 +83,11 @@
                 </td>
             </tr>
         </table>
-
-        <input type="submit" class="btn" value="新規登録" />
     }
 
-    <br>
+</div>
 
-    @using (Html.BeginForm("Back", "SCRN0002", FormMethod.Get))
-    {
-        <input type="submit" class="btn" value="戻る" />
-    }
-
+<div class="insert-btn-Area">
+    <button type="submit" form="form_employee_insert_info">新規登録</button>
+    <button type="submit" action="/SCRN0002/Back">戻る</button>
 </div>
