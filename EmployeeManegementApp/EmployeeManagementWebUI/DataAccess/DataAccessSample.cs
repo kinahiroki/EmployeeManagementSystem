@@ -58,5 +58,27 @@ namespace EmployeeManagementWebUI.DataAccess
 
             repository.Close();
         }
+
+        public void InsertSample()
+        {
+            using var repository = new EmployeeSystemRepository();
+            repository.Open();
+
+            // ①SQLの生成
+            var insertQuery = "INSERT INTO table_name { column_1, culumn_2, culumn_3, …, culumn_N }"
+                + " VALUES (@value_1, @value_2, @value_3, …, @value_N) ";
+
+            // ②パラメータ生成
+            var parametorNameAndValueDic = new Dictionary<string, object>()
+            {
+                // { SQLに指定した変数名, 変数に入れたい値 }
+                { "@value_1", string.Empty },
+            };
+
+            // ③SQLの実行
+            repository.ExcuteNonQuery(insertQuery, parametorNameAndValueDic);
+
+            repository.Close();
+        }
     }
 }
