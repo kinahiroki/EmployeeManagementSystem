@@ -10,7 +10,9 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<div>
+<link rel="stylesheet" href="~/css/SCRN0002/SCRN0002.css">
+
+<div class="error-message-area">
     <fieldset>
         @foreach (var displayItem in Model.ErrorMessageList)
         {
@@ -23,15 +25,15 @@
 
     @using (Html.BeginForm("Execute", "SCRN0002", FormMethod.Post, new { id = "form_employee_insert_info" }))
     {
-        <table>
+        <table class="employeeInfo-input-area">
             <tr>
-                <td>社員ID</td>
+                <th>社員ID</th>
                 <td colspan="2">
                     @Html.TextBoxFor(model => model.EmployeeID)
                 </td>
             </tr>
             <tr>
-                <td>所属部署</td>
+                <th>所属部署</th>
                 <td colspan="2">
                     @Html.DropDownListFor(
                          model => model.SelectedDepartmentCD,
@@ -39,7 +41,7 @@
                 </td>
             </tr>
             <tr>
-                <td>役職</td>
+                <th>役職</th>
                 <td colspan="2">
                     @Html.DropDownListFor(
                          model => model.SelectedPositionCD,
@@ -47,13 +49,13 @@
                 </td>
             </tr>
             <tr>
-                <td>氏名</td>
+                <th>氏名</th>
                 <td colspan="2">
                     @Html.TextBoxFor(model => model.EmployeeName)
                 </td>
             </tr>
             <tr>
-                <td>性別</td>
+                <th>性別</th>
                 <td>
                     @Html.RadioButtonFor(
                         model => model.SelectedGenderCD, "01")
@@ -64,30 +66,30 @@
                 </td>
             </tr>
             <tr>
-                <td>生年月日</td>
+                <th>生年月日</th>
                 <td colspan="2">
                     @Html.TextBoxFor(model => model.Birthday)
                 </td>
             </tr>
             <tr>
-                <td>基本給料</td>
+                <th>基本給料</th>
                 <td colspan="2">
                     @Html.TextBoxFor(model => model.BaseSalary)
                     <label style="font-size:10px">(千円)</label>
                 </td>
             </tr>
             <tr>
-                <td>メモ</td>
-                <td>
+                <th>メモ</th>
+                <td colspan="2">
                     @Html.TextAreaFor(model => model.Memo)
                 </td>
             </tr>
         </table>
     }
-
 </div>
 
 <div class="insert-btn-Area">
     <button type="submit" form="form_employee_insert_info">新規登録</button>
     <button type="submit" action="/SCRN0002/Back">戻る</button>
 </div>
+

@@ -1,0 +1,21 @@
+﻿/* ページ全体の配置 */
+
+
+/* 社員情報入力エリアのスタイル指定 */
+table.employeeInfo-input-area {
+    border: 1px solid;
+}
+
+table.employeeInfo-input-area > tr, th, td {
+    border: 1px solid;
+    padding: 3px;
+}
+
+th {
+    min-width : 100px;
+    min-height : 20px;
+}
+
+td {
+    width : 150px;
+}
