@@ -1,4 +1,5 @@
-﻿using EmployeeManagementWebUI.Helper;
+﻿using EmployeeManagementWebUI.Common.Session;
+using EmployeeManagementWebUI.Helper;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
