@@ -36,18 +36,24 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
         [Required]
         public string EmployeeID { get; set; }
 
+        [Required]
         public string SelectedDepartmentCD { get; set; }
 
+        [Required]
         public string SelectedPositionCD { get; set; }
 
+        [Required]
         public string EmployeeName { get; set; }
 
+        [Required]
         public string SelectedGenderCD { get; set; }
 
         public bool IsForeignNationality { get; set; }
 
+        [Required]
         public string Birthday { get; set; }
 
+        [Required]
         public string BaseSalary { get; set; }
 
         public string Memo { get; set; }

@@ -52,16 +52,16 @@ namespace EmployeeManagementWebUI.Helper
             var viewModelDto = new SCRN0002ViewModelDTO();
 
             // 所属管理データの取得
-            var affiliationList = _affiliationLogic.FindAllForAffiliation();
+            //var affiliationList = _affiliationLogic.FindAllForAffiliation();
 
             // 所属部署プルダウンリスト作成
-            viewModelDto.DepartmentPullDownList = affiliationList.Select(x =>
-                new PulldownListForItemDTO()
-                {
-                    ItemNameForDisplay = x.AffiliationNm,
-                    ItemValue = x.AffiliationCD,
-                })
-                .ToList();
+            //viewModelDto.DepartmentPullDownList = affiliationList.Select(x =>
+            //    new PulldownListForItemDTO()
+            //    {
+            //        ItemNameForDisplay = x.AffiliationNm,
+            //        ItemValue = x.AffiliationCD,
+            //    })
+            //    .ToList();
 
             // TODO 役職プルダウンリスト作成
 
@@ -80,37 +80,7 @@ namespace EmployeeManagementWebUI.Helper
         /// <returns>処理結果</returns>
         public SCRN0002ViewModelDTO Entry(SCRN0002Request request)
         {
-            (var checkResult, var errorMessageList) = IsInputValueCheck(request);
-            if (!checkResult)
-            {
-                return new SCRN0002ViewModelDTO()
-                {
-                    ErrorMessageList = errorMessageList,
-                };
-            }
-
             return new SCRN0002ViewModelDTO();
         }
-
-        private (bool, List<DisplayMessageDTO>) IsInputValueCheck(SCRN0002Request request)
-        {
-            var checkResult = true;
-            var errorMessageList = new List<DisplayMessageDTO>();
-
-            // 社員IDの入力値チェック
-            if (!ValidateUtility.IsRequiredCheck(request.EmployeeID))
-            {
-                checkResult = false;
-                errorMessageList.Add(
-                    new DisplayMessageDTO()
-                    {
-                        MessageID = "ERR001",
-                        DisplayForMessage = "必須",
-                    });
-            }
-
-            return (checkResult, errorMessageList);
-        }
-
     }
 }
