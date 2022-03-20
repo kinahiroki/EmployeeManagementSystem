@@ -34,10 +34,7 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
             Memo = string.Empty;
         }
 
-        /// <summary>エラーメッセージリストの取得と設定</summary>
-        /// <remarks>エラーメッセージリストの取得と設定</remarks>
-        /// <value>エラーメッセージリスト</value>
-        public IList<DisplayMessageDTO> ErrorMessageList { get; set; }
+        public IEnumerable<DisplayMessageDTO> ErrorMessageList { get; set; }
 
         public string EmployeeID { get; set; }
 

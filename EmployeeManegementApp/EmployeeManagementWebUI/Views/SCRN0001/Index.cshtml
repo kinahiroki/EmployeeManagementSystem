@@ -14,7 +14,7 @@
     <fieldset>
         @foreach (var displayItem in Model.ErrorMessageList)
         {
-            @Html.Label(displayItem.DisplayForMessage) ; <br />
+            @Html.Label(displayItem.MessageID, displayItem.DisplayForMessage)<br />
         }
     </fieldset>
 </div>

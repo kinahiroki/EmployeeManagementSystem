@@ -1,5 +1,5 @@
-﻿using EmployeeManagementWebUI.Common.Dto;
-using EmployeeManagementWebUI.Helper;
+﻿using EmployeeManagementWebUI.Helper;
+using EmployeeManagementWebUI.Utility;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -18,7 +18,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
 
         /// <summary>コントローラ名：社員管理システムメニュー</summary>
         /// <remarks>コントローラ名：社員管理システムメニュー</remarks>
-        private const string CONTROLLER_NAME_MANU = "SCRN0001";
+        private const string CONTROLLER_NAME_MENU = "SCRN0001";
 
         /// <summary>アクション名：初期表示</summary>
         /// <remarks>アクション名：初期表示</remarks>
@@ -50,6 +50,8 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
 
         #endregion
 
+        #region === 初期表示 ===
+
         /// <summary>
         /// 初期表示
         /// </summary>
@@ -66,6 +68,10 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
             return View(viewModelDto);
         }
 
+        #endregion
+
+        #region === 新規登録 ===
+
         /// <summary>
         /// 新規登録
         /// </summary>
@@ -81,15 +87,21 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
             if (!ModelState.IsValid)
             {
                 // 単項目チェックエラーの場合
-                var errorMessageList = ModelState.Select(item => item.Value.Errors
-                    .Select(subItem => new DisplayMessageDTO()
-                    {
-                        DisplayForMessage = subItem.ErrorMessage,
-                    })).ToList();
-
                 var viewModelForSingleCheckError = new SCRN0002ViewModelDTO()
                 {
-                    ErrorMessageList = errorMessageList,
+                    // エラーメッセージを格納
+                    ErrorMessageList = ScreenUtility.CreateErrorMessageForDisplay(ModelState),
+
+                    // 入力値を格納
+                    EmployeeID = request.EmployeeID,
+                    SelectedDepartmentCD = request.SelectedDepartmentCD,
+                    SelectedPositionCD = request.SelectedPositionCD,
+                    EmployeeName = request.EmployeeName,
+                    SelectedGenderCD = request.SelectedGenderCD,
+                    IsForeignNationality = request.IsForeignNationality,
+                    Birthday = request.Birthday,
+                    BaseSalary = request.BaseSalary,
+                    Memo = request.Memo,
                 };
 
                 return View(ACTION_NAME_INDEX, viewModelForSingleCheckError);
@@ -105,6 +117,10 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
             return View(ACTION_NAME_INDEX, "SCRN0004");
         }
 
+        #endregion
+
+        #region === 戻る処理 ===
+
         /// <summary>
         /// 戻る処理
         /// </summary>
@@ -116,7 +132,9 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         [HttpGet]
         public IActionResult Back()
         {
-            return RedirectToAction(ACTION_NAME_INDEX, CONTROLLER_NAME_MANU);
+            return RedirectToAction(ACTION_NAME_INDEX, CONTROLLER_NAME_MENU);
         }
+
+        #endregion
     }
 }
