@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementWebUI.Utility
 {
@@ -27,21 +26,13 @@ namespace EmployeeManagementWebUI.Utility
         /// <returns>生成した表示用エラーメッセージ</returns>
         public static IEnumerable<DisplayMessageDTO> CreateErrorMessageForDisplay(ModelStateDictionary modelStateDictionary)
         {
-            var errorMessageForDisplayList = new List<DisplayMessageDTO>();
-
-            foreach (var modelStateInfo in modelStateDictionary.Values)
-            {
-                foreach (var errorInfos in modelStateInfo.Errors)
+            return modelStateDictionary.Values
+                .SelectMany(validInfo => validInfo.Errors
+                .Select(errInfo => new DisplayMessageDTO()
                 {
-                    var displayMessageInfo = new DisplayMessageDTO()
-                    {
-                        DisplayForMessage = errorInfos.ErrorMessage,
-                    };
-                    errorMessageForDisplayList.Add(displayMessageInfo);
-                }
-            }
-
-            return errorMessageForDisplayList;
+                    DisplayForMessage = errInfo.ErrorMessage,
+                }))
+                .ToList();
         }
 
         #endregion
