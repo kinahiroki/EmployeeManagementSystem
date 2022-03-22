@@ -23,15 +23,19 @@ namespace EmployeeManagementWebUI.Controllers
 
         #endregion
 
+        #region === コンストラクタ ===
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
         /// <remarks>
         /// コンストラクタ
         /// </remarks>
-        public EmployeeWebControllerBase(HttpContext httpContext)
+        public EmployeeWebControllerBase()
         {
-            _session = httpContext.Session;
+            _session = HttpContext.Session;
         }
+
+        #endregion
     }
 }

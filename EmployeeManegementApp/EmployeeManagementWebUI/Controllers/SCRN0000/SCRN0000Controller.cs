@@ -8,8 +8,10 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0000
     /// <remarks>
     /// 社員管理システムTOP コントローラ
     /// </remarks>
-    public class SCRN0000Controller : Controller
+    public class SCRN0000Controller : EmployeeWebControllerBase
     {
+        #region === 初期表示 ===
+
         /// <summary>
         /// 初期表示
         /// </summary>
@@ -23,5 +25,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0000
         {
             return View();
         }
+
+        #endregion
     }
 }

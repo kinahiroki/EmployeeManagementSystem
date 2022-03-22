@@ -9,6 +9,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0001
     /// <remarks>
     /// 社員管理システムメニュー　コントローラー
     /// </remarks>
+    [Route("/employee/menu")]
     public class SCRN0001Controller : Controller
     {
         /// <summary></summary>
@@ -33,7 +34,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0001
         /// イベント名：社員管理システムメニュー画面初期表示
         /// </remarks>
         /// <returns>ActionResult</returns>
-        [Route("/employee/menu")]
+        [Route("")]
         [HttpGet]
         public IActionResult Index()
         {

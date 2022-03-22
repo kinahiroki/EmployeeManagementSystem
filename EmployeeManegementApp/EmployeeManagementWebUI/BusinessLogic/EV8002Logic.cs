@@ -29,10 +29,7 @@ namespace EmployeeManagementWebUI.BusinessLogic
 
             var selectResultList = new List<AffiliationDAO>();
 
-            // SQL実行
             var selectQuery = "SELECT * FROM employee_db.m_affiliation";
-
-            // 実行結果の取得
             var selectResult = repository.ExcuteQuery(selectQuery);
             while (selectResult.Read())
             {

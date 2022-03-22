@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagementWebUI.Helper
 {
@@ -28,6 +27,8 @@ namespace EmployeeManagementWebUI.Helper
 
         #endregion
 
+        #region === コンストラクタ ===
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -40,6 +41,10 @@ namespace EmployeeManagementWebUI.Helper
             _affiliationLogic = affiliationLogic;
         }
 
+        #endregion
+
+        #region === 初期表示処理 ===
+
         /// <summary>
         /// 社員管理登録画面　初期表示処理
         /// </summary>
@@ -51,17 +56,25 @@ namespace EmployeeManagementWebUI.Helper
         {
             var viewModelDto = new SCRN0002ViewModelDTO();
 
-            // 所属管理データの取得
-            //var affiliationList = _affiliationLogic.FindAllForAffiliation();
-
-            // 所属部署プルダウンリスト作成
-            //viewModelDto.DepartmentPullDownList = affiliationList.Select(x =>
-            //    new PulldownListForItemDTO()
-            //    {
-            //        ItemNameForDisplay = x.AffiliationNm,
-            //        ItemValue = x.AffiliationCD,
-            //    })
-            //    .ToList();
+            // TODO 所属部署プルダウンリスト作成 ⇒ 後々DBからデータを取得できるようにすること。
+            viewModelDto.DepartmentPullDownList = new List<PulldownListForItemDTO>()
+            {
+                new PulldownListForItemDTO()
+                {
+                    ItemNameForDisplay = "産業開発１部",
+                    ItemValue = "01",
+                },
+                new PulldownListForItemDTO()
+                {
+                    ItemNameForDisplay = "産業開発２部",
+                    ItemValue = "02",
+                },
+                new PulldownListForItemDTO()
+                {
+                    ItemNameForDisplay = "総務部",
+                    ItemValue = "91",
+                },
+            };
 
             // TODO 役職プルダウンリスト作成
 
@@ -69,6 +82,10 @@ namespace EmployeeManagementWebUI.Helper
 
             return viewModelDto;
         }
+
+        #endregion
+
+        #region === 社員登録処理 ===
 
         /// <summary>
         /// 社員管理登録画面　登録処理
@@ -82,5 +99,7 @@ namespace EmployeeManagementWebUI.Helper
         {
             return new SCRN0002ViewModelDTO();
         }
+
+        #endregion
     }
 }

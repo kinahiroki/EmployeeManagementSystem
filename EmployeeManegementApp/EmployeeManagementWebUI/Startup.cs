@@ -30,7 +30,10 @@ namespace EmployeeManagementWebUI
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
+                options.Cookie.Name = ".Employee.Session";
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
             });
 
             // DI‚ÅŽg‚¤ƒNƒ‰ƒX‚Ì’Ç‰Á

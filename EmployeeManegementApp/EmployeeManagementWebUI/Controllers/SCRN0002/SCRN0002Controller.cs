@@ -12,6 +12,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
     /// <remarks>
     /// 社員登録画面　コントローラー
     /// </remarks>
+    [Route("/employee/entry")]
     public class SCRN0002Controller : Controller
     {
         #region === 定数 ===
@@ -19,6 +20,10 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// <summary>コントローラ名：社員管理システムメニュー</summary>
         /// <remarks>コントローラ名：社員管理システムメニュー</remarks>
         private const string CONTROLLER_NAME_MENU = "SCRN0001";
+
+        /// <summary>コントローラ名：社員管理完了</summary>
+        /// <remarks>コントローラ名：社員管理完了</remarks>
+        private const string CONTROLLER_NAME_CONFIRM = "SCRN0004";
 
         /// <summary>アクション名：初期表示</summary>
         /// <remarks>アクション名：初期表示</remarks>
@@ -59,7 +64,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// イベント名：社員登録画面初期表示
         /// </remarks>
         /// <returns>ActionResult</returns>
-        [Route("/entry")]
+        [Route("")]
         [HttpGet]
         [HttpPost]
         public IActionResult Index()
@@ -80,7 +85,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// </remarks>
         /// <param name="request">request</param>
         /// <returns>ActionResult</returns>
-        [Route("/entry/execute")]
+        [Route("execute")]
         [HttpPost]
         public IActionResult Execute(SCRN0002Request request)
         {
@@ -114,7 +119,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
                 return View(ACTION_NAME_INDEX, viewModelDto);
             }
 
-            return View(ACTION_NAME_INDEX, "SCRN0004");
+            return View(ACTION_NAME_INDEX, CONTROLLER_NAME_CONFIRM);
         }
 
         #endregion
@@ -128,7 +133,7 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// イベント名：戻るボタン押下
         /// </remarks>
         /// <returns></returns>
-        [Route("/back")]
+        [Route("back")]
         [HttpGet]
         public IActionResult Back()
         {
