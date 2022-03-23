@@ -97,6 +97,10 @@ namespace EmployeeManagementWebUI.Helper
         /// <returns>処理結果</returns>
         public SCRN0002ViewModelDTO Entry(SCRN0002Request request)
         {
+            // TODO 相関チェック
+            // TODO 社員登録チェック
+            // TODO マスタチェック
+
             return new SCRN0002ViewModelDTO();
         }
 

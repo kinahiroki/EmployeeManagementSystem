@@ -11,6 +11,8 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
     /// </remarks>
     public class SCRN0002ViewModelDTO
     {
+        #region === コンストラクタ ===
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -33,6 +35,8 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
             BaseSalary = string.Empty;
             Memo = string.Empty;
         }
+
+        #endregion
 
         public IEnumerable<DisplayMessageDTO> ErrorMessageList { get; set; }
 

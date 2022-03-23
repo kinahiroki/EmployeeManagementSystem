@@ -10,6 +10,8 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
     /// </remarks>
     public class SCRN0002Request
     {
+        #region === コンストラクタ ===
+
         /// <summary>
         /// コンストラクタ
         /// </summary>
@@ -28,6 +30,8 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
             BaseSalary = string.Empty;
             Memo = string.Empty;
         }
+
+        #endregion
 
         [Required]
         public string EmployeeID { get; set; }
