@@ -3,8 +3,8 @@ using EmployeeManagementWebUI.Common.Dto;
 using EmployeeManagementWebUI.Common.Session;
 using EmployeeManagementWebUI.Common.Validate;
 using EmployeeManagementWebUI.DataAccess;
+using EmployeeManagementWebUI.Utility;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
-using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -97,11 +97,54 @@ namespace EmployeeManagementWebUI.Helper
         /// <returns>処理結果</returns>
         public SCRN0002ViewModelDTO Entry(SCRN0002Request request)
         {
+            if (!request.ModelStateDictionary.IsValid) 
+            {
+                // 単項目チェックエラーの場合
+                var viewModelDtoForSingleItemCheckError = new SCRN0002ViewModelDTO()
+                {
+                    ErrorMessageList = ScreenUtility.CreateErrorMessageForDisplay(request.ModelStateDictionary),
+                };
+
+                return RefillFromRequestInfoToViewModelDTO(request, viewModelDtoForSingleItemCheckError);
+            }
+
             // TODO 相関チェック
             // TODO 社員登録チェック
             // TODO マスタチェック
 
             return new SCRN0002ViewModelDTO();
+        }
+
+        #endregion
+
+        #region === リクエスト情報を画面DTOへ詰め替え(エラー発生時) ===
+
+        /// <summary>
+        /// リクエスト情報を画面DTOへ詰め替え(エラー発生時)
+        /// </summary>
+        /// <remarks>
+        /// リクエスト情報を画面DTOへ詰め替え(エラー発生時)
+        /// </remarks>
+        /// <param name="request">リクエスト情報</param>
+        /// <param name="viewModelDto">画面表示用情報</param>
+        /// <returns>詰め替え後の画面表示用情報</returns>
+        private SCRN0002ViewModelDTO RefillFromRequestInfoToViewModelDTO(
+            SCRN0002Request request, SCRN0002ViewModelDTO viewModelDto)
+        {
+            viewModelDto.EmployeeID = request.EmployeeID;
+            viewModelDto.SelectedDepartmentCD = request.SelectedDepartmentCD;
+            // TODO viewModelDto.DepartmentPullDownList = 
+            viewModelDto.SelectedPositionCD = request.SelectedPositionCD;
+            // TODO viewModelDto.PositionPullDownList = 
+            viewModelDto.EmployeeName = request.EmployeeName;
+            viewModelDto.SelectedGenderCD = request.SelectedGenderCD;
+            // TODO viewModelDto.GenderRadioButtonItems =
+            viewModelDto.IsForeignNationality = request.IsForeignNationality;
+            viewModelDto.Birthday = request.Birthday;
+            viewModelDto.BaseSalary = request.BaseSalary;
+            viewModelDto.Memo = request.Memo;
+
+            return viewModelDto;
         }
 
         #endregion

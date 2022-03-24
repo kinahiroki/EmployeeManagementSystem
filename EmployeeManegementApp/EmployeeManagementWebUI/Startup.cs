@@ -71,10 +71,9 @@ namespace EmployeeManagementWebUI
 
             app.UseEndpoints(endpoints =>
             {
-                // ƒƒjƒ…[‰æ–Ê‚ÌURL‚É•ÏX
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=SCRN0000}/{action=Index}/{id?}");
+                    pattern: @"{controller=SCRN0000}/{action=Index}/{id?}");
             });
         }
     }

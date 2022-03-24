@@ -1,5 +1,4 @@
 ﻿using EmployeeManagementWebUI.Helper;
-using EmployeeManagementWebUI.Utility;
 using EmployeeManagementWebUI.ViewModel.SCRN0002;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -65,7 +64,6 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         /// </remarks>
         /// <returns>ActionResult</returns>
         [Route("")]
-        [HttpGet]
         [HttpPost]
         public IActionResult Index()
         {
@@ -89,33 +87,12 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0002
         [HttpPost]
         public IActionResult Execute(SCRN0002Request request)
         {
-            if (!ModelState.IsValid)
-            {
-                // 単項目チェックエラーの場合
-                var viewModelForSingleCheckError = new SCRN0002ViewModelDTO()
-                {
-                    // エラーメッセージを格納
-                    ErrorMessageList = ScreenUtility.CreateErrorMessageForDisplay(ModelState),
-
-                    // 入力値を格納
-                    EmployeeID = request.EmployeeID,
-                    SelectedDepartmentCD = request.SelectedDepartmentCD,
-                    SelectedPositionCD = request.SelectedPositionCD,
-                    EmployeeName = request.EmployeeName,
-                    SelectedGenderCD = request.SelectedGenderCD,
-                    IsForeignNationality = request.IsForeignNationality,
-                    Birthday = request.Birthday,
-                    BaseSalary = request.BaseSalary,
-                    Memo = request.Memo,
-                };
-
-                return View(ACTION_NAME_INDEX, viewModelForSingleCheckError);
-            }
+            // ModelStateを格納
+            request.ModelStateDictionary = ModelState;
 
             var viewModelDto = _ev0002Helper.Entry(request);
             if (viewModelDto.ErrorMessageList.Any())
             {
-                // 社員登録画面の再表示
                 return View(ACTION_NAME_INDEX, viewModelDto);
             }
 

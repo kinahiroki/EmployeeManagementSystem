@@ -8,7 +8,6 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0000
     /// <remarks>
     /// 社員管理システムTOP コントローラ
     /// </remarks>
-    [Route("/employee/top")]
     public class SCRN0000Controller : Controller
     {
         #region === 初期表示 ===
@@ -20,7 +19,6 @@ namespace EmployeeManagementWebUI.Controllers.SCRN0000
         /// イベント名：社員管理システムTOP画面初期表示
         /// </remarks>
         /// <returns>ActionResult</returns>
-        [Route("")]
         [HttpGet]
         public IActionResult Index()
         {

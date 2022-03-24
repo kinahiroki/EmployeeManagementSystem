@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 
 namespace EmployeeManagementWebUI.ViewModel.SCRN0002
 {
@@ -32,6 +33,8 @@ namespace EmployeeManagementWebUI.ViewModel.SCRN0002
         }
 
         #endregion
+
+        public ModelStateDictionary ModelStateDictionary { get; set; }
 
         [Required]
         public string EmployeeID { get; set; }
